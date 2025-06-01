@@ -1,3 +1,9 @@
+use std::io::{self, BufRead};
+
 fn main() {
-    println!("Hello, world!");
+    let stdin = io::stdin().lock();
+
+    for _ in stdin.lines() {
+        println!("Hello, world!");
+    }
 }

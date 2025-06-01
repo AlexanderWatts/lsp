@@ -1,6 +1,24 @@
 use serde::Serialize;
 use serde_json::Result;
 
+/// # Content Part
+///
+/// [Reference](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#contentPart)
+///
+/// ## Example
+///
+/// ```text
+/// Content-Length: <content_length>\r\n
+/// \r\n
+/// {
+/// 	"jsonrpc": "2.0",
+/// 	"id": 1,
+/// 	"method": "textDocument/completion",
+/// 	"params": {
+/// 		...
+/// 	}
+/// }
+/// ```
 pub fn encode_message<T: Serialize>(message: T) -> Result<String> {
     let content = serde_json::to_string(&message)?;
 
